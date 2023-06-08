@@ -44,6 +44,10 @@ export function useAkkaSwapInfo(
 
   const { route, args, mutateAkkaRoute, isLoading } = useAkkaRouterRouteWithArgs(inputCurrency, outputCurrency, parsedAmount, allowedSlippage)
 
+  console.log(route);
+  console.log(args);
+  console.log(isLoading);
+  
   const currencyBalances = {
     [Field.INPUT]: relevantTokenBalances[0],
     [Field.OUTPUT]: relevantTokenBalances[1],
