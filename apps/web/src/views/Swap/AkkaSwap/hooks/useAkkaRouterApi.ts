@@ -39,8 +39,8 @@ export const useAkkaRouterRouteWithArgs = (
   const [args, setArgs] = useState(null);
   const [routeLoading, setRouteLoading] = useState(true);
   const [argsLoading, setArgsLoading] = useState(true);
-
-  const getAkkaData = useCallback(() => {
+  
+  useEffect(() => {
     setRouteLoading(true)
     setArgsLoading(true)
     if (token0 && token1 && amount && slippage && (chainId === ChainId.BITGERT || chainId === ChainId.XDC || chainId === ChainId.CORE) && isAkkaSwapActive) {
@@ -59,7 +59,7 @@ export const useAkkaRouterRouteWithArgs = (
         routeController
       )
         .then((data) => {
-          setRoute(data.data);
+          setRoute(data);
           console.log("route:", data);
         })
         .catch((err) => {
@@ -86,7 +86,7 @@ export const useAkkaRouterRouteWithArgs = (
           swapController
         )
           .then((data) => {
-            setArgs(data.data);
+            setArgs(data);
             console.log("swap:", data);
           })
           .catch((err) => {
@@ -109,12 +109,12 @@ export const useAkkaRouterRouteWithArgs = (
     account,
     token0,
     token1,
-    amount,
+    typedValue,
     slippage,
   ]);
 
   const mutateAkkaRoute = () => {
-    getAkkaData()
+      
   }
 
   const isLoading = routeLoading || argsLoading
