@@ -68,6 +68,7 @@ export const ROUTER_ADDRESS: Partial<ChainMap<RouterAddressTypes>> = {
   },
   [ChainId.SHIMMER]: {
     Icecream: '0xBbB4CCfc93657AC125F4b1f734111349d1bFF611',
+    Akka: '0x7023c6f0eA4D839691550c943E172dd68b9A9e39'
   },
   [ChainId.SCROLL]: {
     Icecream: ROUTER_ADDRESS_COMMON,

@@ -12,6 +12,8 @@ export const setRouteApiChainName = (chainId: ChainId) => {
             return "teloschain"
         case ChainId.BASE:
             return "base"
+        case ChainId.SHIMMER:
+            return "shimmer"
         default:
             return ""
     }

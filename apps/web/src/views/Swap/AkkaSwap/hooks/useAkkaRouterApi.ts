@@ -51,9 +51,9 @@ export const useAkkaRouterApi = (
   const akkaV2Contract = useAkkaRouterV2Contract()
   const akkaV3Contract = useAkkaRouterV3Contract()
   const methodName = 'multiPathSwap'
-  const API_URL = chainId === ChainId.BASE ? 'https://devapi.akka.foundation' : 'https://api.akka.foundation'
+  const API_URL = chainId === ChainId.BASE || ChainId.SHIMMER ? 'https://devapi.akka.foundation' : 'https://api.akka.foundation'
   const isAkkaSupportedChain = SUPPORT_AKKA_ROUTER.includes(chainId)
-  
+
   // Turn off akka on switch chain
   useEffect(() => {
     if (isAkkaSupportedChain) {
@@ -176,7 +176,7 @@ export const useAkkaRouterApi = (
                       })
                     })
                 }
-                if (chainId === ChainId.BASE) {
+                if (chainId === ChainId.BASE || chainId === ChainId.SHIMMER) {
                   akkaV3Contract.estimateGas[methodName](
                     response.swap.amountIn,
                     response.swap.amountOutMin,
@@ -318,7 +318,7 @@ export const useAkkaRouterApi = (
                       })
                     })
                 }
-                if (chainId === ChainId.BASE) {
+                if (chainId === ChainId.BASE || chainId === ChainId.SHIMMER) {
                   akkaV3Contract.estimateGas[methodName](
                     response.swap.amountIn,
                     response.swap.amountOutMin,
