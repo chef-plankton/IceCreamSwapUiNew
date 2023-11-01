@@ -113,27 +113,28 @@ export const useAkkaRouterApi = (
                         toggleSetAkkaModeToTrue()
                       } else {
                         toggleSetAkkaModeToFalse()
-                        captureMessage(`AKKA: EstimateGas is lower than 21000`, {
-                          tags: {
-                            chain_id: chainId,
-                            amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
-                            fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
-                            toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
-                          },
-                        })
+                        console.error(`AKKA: EstimateGas is lower than 21000`);
+                        // captureMessage(`AKKA: EstimateGas is lower than 21000`, {
+                        //   tags: {
+                        //     chain_id: chainId,
+                        //     amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
+                        //     fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
+                        //     toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
+                        //   },
+                        // })
                       }
                     })
                     .catch((error) => {
                       toggleSetAkkaModeToFalse()
-                      console.log(error);
-                      captureMessage(`AKKA: EstimateGas Error -> ${error}`, {
-                        tags: {
-                          chain_id: chainId,
-                          amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
-                          fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
-                          toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
-                        },
-                      })
+                      console.error(`AKKA: EstimateGas Error -> ${error}`);
+                      // captureMessage(`AKKA: EstimateGas Error -> ${error}`, {
+                      //   tags: {
+                      //     chain_id: chainId,
+                      //     amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
+                      //     fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
+                      //     toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
+                      //   },
+                      // })
                     })
                 }
                 if (chainId === ChainId.BITGERT) {
@@ -153,27 +154,28 @@ export const useAkkaRouterApi = (
                         toggleSetAkkaModeToTrue()
                       } else {
                         toggleSetAkkaModeToFalse()
-                        captureMessage(`AKKA: EstimateGas is lower than 21000`, {
-                          tags: {
-                            chain_id: chainId,
-                            amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
-                            fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
-                            toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
-                          },
-                        })
+                        console.error(`AKKA: EstimateGas is lower than 21000`);
+                        // captureMessage(`AKKA: EstimateGas is lower than 21000`, {
+                        //   tags: {
+                        //     chain_id: chainId,
+                        //     amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
+                        //     fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
+                        //     toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
+                        //   },
+                        // })
                       }
                     })
                     .catch((error) => {
                       toggleSetAkkaModeToFalse()
-                      console.log(error);
-                      captureMessage(`AKKA: EstimateGas Error -> ${error}`, {
-                        tags: {
-                          chain_id: chainId,
-                          amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
-                          fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
-                          toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
-                        },
-                      })
+                      console.error(`AKKA: EstimateGas Error -> ${error}`);
+                      // captureMessage(`AKKA: EstimateGas Error -> ${error}`, {
+                      //   tags: {
+                      //     chain_id: chainId,
+                      //     amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
+                      //     fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
+                      //     toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
+                      //   },
+                      // })
                     })
                 }
                 if (chainId === ChainId.BASE || chainId === ChainId.SHIMMER) {
@@ -195,27 +197,28 @@ export const useAkkaRouterApi = (
                         toggleSetAkkaModeToTrue()
                       } else {
                         toggleSetAkkaModeToFalse()
-                        captureMessage(`AKKA: EstimateGas is lower than 21000`, {
-                          tags: {
-                            chain_id: chainId,
-                            amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
-                            fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
-                            toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
-                          },
-                        })
+                        console.error(`AKKA: EstimateGas is lower than 21000`);
+                        // captureMessage(`AKKA: EstimateGas is lower than 21000`, {
+                        //   tags: {
+                        //     chain_id: chainId,
+                        //     amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
+                        //     fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
+                        //     toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
+                        //   },
+                        // })
                       }
                     })
                     .catch((error) => {
                       toggleSetAkkaModeToFalse()
-                      console.log(error);
-                      captureMessage(`AKKA: EstimateGas Error -> ${error}`, {
-                        tags: {
-                          chain_id: chainId,
-                          amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
-                          fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
-                          toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
-                        },
-                      })
+                      console.error(`AKKA: EstimateGas Error -> ${error}`);
+                      // captureMessage(`AKKA: EstimateGas Error -> ${error}`, {
+                      //   tags: {
+                      //     chain_id: chainId,
+                      //     amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
+                      //     fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
+                      //     toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
+                      //   },
+                      // })
                     })
                 }
               }
@@ -255,27 +258,28 @@ export const useAkkaRouterApi = (
                         toggleSetAkkaModeToTrue()
                       } else {
                         toggleSetAkkaModeToFalse()
-                        captureMessage(`AKKA: EstimateGas is lower than 21000`, {
-                          tags: {
-                            chain_id: chainId,
-                            amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
-                            fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
-                            toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
-                          },
-                        })
+                        console.error(`AKKA: EstimateGas is lower than 21000`);
+                        // captureMessage(`AKKA: EstimateGas is lower than 21000`, {
+                        //   tags: {
+                        //     chain_id: chainId,
+                        //     amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
+                        //     fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
+                        //     toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
+                        //   },
+                        // })
                       }
                     })
                     .catch((error) => {
                       toggleSetAkkaModeToFalse()
-                      console.log(error);
-                      captureMessage(`AKKA: EstimateGas Error -> ${error}`, {
-                        tags: {
-                          chain_id: chainId,
-                          amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
-                          fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
-                          toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
-                        },
-                      })
+                      console.error(`AKKA: EstimateGas Error -> ${error}`);
+                      // captureMessage(`AKKA: EstimateGas Error -> ${error}`, {
+                      //   tags: {
+                      //     chain_id: chainId,
+                      //     amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
+                      //     fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
+                      //     toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
+                      //   },
+                      // })
                     })
                 }
                 if (chainId === ChainId.BITGERT) {
@@ -295,27 +299,28 @@ export const useAkkaRouterApi = (
                         toggleSetAkkaModeToTrue()
                       } else {
                         toggleSetAkkaModeToFalse()
-                        captureMessage(`AKKA: EstimateGas is lower than 21000`, {
-                          tags: {
-                            chain_id: chainId,
-                            amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
-                            fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
-                            toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
-                          },
-                        })
+                        console.error(`AKKA: EstimateGas is lower than 21000`)
+                        // captureMessage(`AKKA: EstimateGas is lower than 21000`, {
+                        //   tags: {
+                        //     chain_id: chainId,
+                        //     amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
+                        //     fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
+                        //     toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
+                        //   },
+                        // })
                       }
                     })
                     .catch((error) => {
                       toggleSetAkkaModeToFalse()
-                      console.log(error);
-                      captureMessage(`AKKA: EstimateGas Error -> ${error}`, {
-                        tags: {
-                          chain_id: chainId,
-                          amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
-                          fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
-                          toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
-                        },
-                      })
+                      console.error(`AKKA: EstimateGas Error -> ${error}`);
+                      // captureMessage(`AKKA: EstimateGas Error -> ${error}`, {
+                      //   tags: {
+                      //     chain_id: chainId,
+                      //     amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
+                      //     fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
+                      //     toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
+                      //   },
+                      // })
                     })
                 }
                 if (chainId === ChainId.BASE || chainId === ChainId.SHIMMER) {
@@ -337,27 +342,28 @@ export const useAkkaRouterApi = (
                         toggleSetAkkaModeToTrue()
                       } else {
                         toggleSetAkkaModeToFalse()
-                        captureMessage(`AKKA: EstimateGas is lower than 21000`, {
-                          tags: {
-                            chain_id: chainId,
-                            amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
-                            fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
-                            toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
-                          },
-                        })
+                        console.error(`AKKA: EstimateGas is lower than 21000`);
+                        // captureMessage(`AKKA: EstimateGas is lower than 21000`, {
+                        //   tags: {
+                        //     chain_id: chainId,
+                        //     amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
+                        //     fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
+                        //     toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
+                        //   },
+                        // })
                       }
                     })
                     .catch((error) => {
                       toggleSetAkkaModeToFalse()
-                      console.log(error);
-                      captureMessage(`AKKA: EstimateGas Error -> ${error}`, {
-                        tags: {
-                          chain_id: chainId,
-                          amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
-                          fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
-                          toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
-                        },
-                      })
+                      console.error(`AKKA: EstimateGas Error -> ${error}`);
+                      // captureMessage(`AKKA: EstimateGas Error -> ${error}`, {
+                      //   tags: {
+                      //     chain_id: chainId,
+                      //     amount: parsedAmount?.multiply(10 ** inputCurrency?.decimals)?.toExact(),
+                      //     fromToken: inputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : inputCurrency?.wrapped?.address,
+                      //     toToken: outputCurrencyId === NATIVE[chainId]?.symbol ? NATIVE_TOKEN_ADDRESS : outputCurrency?.wrapped?.address,
+                      //   },
+                      // })
                     })
                 }
               }
