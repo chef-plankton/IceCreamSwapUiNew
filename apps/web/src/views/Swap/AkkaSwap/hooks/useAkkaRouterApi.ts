@@ -57,7 +57,7 @@ export const useAkkaRouterApi = (
   const fetcher: Fetcher<AkkaRouterResponseType> = async (url) => {
     setIsRouteLoading(true)
     const controller = new AbortController();
-    const id = setTimeout(() => controller.abort(), 5000);
+    const id = setTimeout(() => controller.abort(), 15000);
     const res = await fetch(url, { signal: controller.signal }).then((r) => {
       if (r.status !== 200) {
         toggleSetAkkaModeToFalse()
