@@ -38,7 +38,7 @@ export const ASSET_CDN = 'https://assets.pancakeswap.finance'
 
 export const TRADING_REWARD_API = 'https://pancake-trading-fee-rebate-api.pancake.run/api/v1'
 
-export const QUOTING_API = `${process.env.NEXT_PUBLIC_QUOTING_API}/v0/quote`
+export const QUOTING_API = `https://devrouter.akka.finance/v2`
 
 export const FARMS_API = 'https://farms-api.icecreamswap.com'
 

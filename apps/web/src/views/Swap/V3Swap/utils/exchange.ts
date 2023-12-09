@@ -38,7 +38,11 @@ export function computeTradePriceBreakdown(trade?: SmartRouterTrade<TradeType> |
 
   const { routes, outputAmount, inputAmount } = trade
   let feePercent = new Percent(0)
+  
+  console.log('trade', trade)
   let outputAmountWithoutPriceImpact = CurrencyAmount.fromRawAmount(trade.outputAmount.wrapped.currency, 0)
+  console.log('outputAmountWithoutPriceImpact', outputAmountWithoutPriceImpact)
+
   for (const route of routes) {
     const { inputAmount: routeInputAmount, pools, percent } = route
     const routeFeePercent = ONE_HUNDRED_PERCENT.subtract(

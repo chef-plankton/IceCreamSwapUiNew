@@ -70,16 +70,17 @@ export function useBestAMMTrade({ type = 'quoter', ...params }: useBestAMMTradeO
   const apiAutoRevalidate = typeof autoRevalidate === 'boolean' ? autoRevalidate : isQuoterAPIEnabled
 
   // switch to api when it's stable
-  // const _bestTradeFromQuoterApi = useBestAMMTradeFromQuoterApi({
-  //   ...params,
-  //   enabled: Boolean(enabled && isQuoterAPIEnabled),
-  //   autoRevalidate: apiAutoRevalidate,
-  // })
-  const bestTradeFromQuoterApi = useBestAMMTradeFromQuoterWorker2({
+  const bestTradeFromQuoterApi = useBestAMMTradeFromQuoterApi({
     ...params,
     enabled: Boolean(enabled && isQuoterAPIEnabled),
     autoRevalidate: apiAutoRevalidate,
   })
+
+  // const bestTradeFromQuoterApi = useBestAMMTradeFromQuoterWorker2({
+  //   ...params,
+  //   enabled: Boolean(enabled && isQuoterAPIEnabled),
+  //   autoRevalidate: apiAutoRevalidate,
+  // })
 
   const quoterAutoRevalidate = typeof autoRevalidate === 'boolean' ? autoRevalidate : isQuoterEnabled
 
@@ -279,27 +280,39 @@ export const useBestAMMTradeFromQuoterApi = bestTradeHookFactory({
       protocols: allowedPoolTypes,
     })
 
-    const serverRes = await fetch(`${QUOTING_API}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        chainId: currency.chainId,
-        currency: SmartRouter.Transformer.serializeCurrency(currency),
-        tradeType,
-        amount: {
-          currency: SmartRouter.Transformer.serializeCurrency(amount.currency),
-          value: amount.quotient.toString(),
+    const serverRes = await fetch(
+      `${QUOTING_API}/${currency.chainId}/pks-quote?src=${
+        SmartRouter.Transformer.serializeCurrency(amount.currency).address
+      }&dst=${SmartRouter.Transformer.serializeCurrency(currency).address}&amount=${amount.quotient.toString()}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
         },
-        gasPriceWei: typeof gasPriceWei !== 'function' ? gasPriceWei?.toString() : undefined,
-        maxHops,
-        maxSplits,
-        poolTypes: allowedPoolTypes,
-        candidatePools: candidatePools.map(SmartRouter.Transformer.serializePool),
-      }),
-    })
+        // body: JSON.stringify({
+        //   chainId: currency.chainId,
+        //   currency: SmartRouter.Transformer.serializeCurrency(currency),
+        //   tradeType,
+        //   amount: {
+        //     currency: SmartRouter.Transformer.serializeCurrency(amount.currency),
+        //     value: amount.quotient.toString(),
+        //   },
+        //   gasPriceWei: typeof gasPriceWei !== 'function' ? gasPriceWei?.toString() : undefined,
+        //   maxHops,
+        //   maxSplits,
+        //   poolTypes: allowedPoolTypes,
+        //   candidatePools: candidatePools.map(SmartRouter.Transformer.serializePool),
+        // }),
+      },
+    )
     const serializedRes = await serverRes.json()
+    console.log('serializedRes', serializedRes)
+
+    console.log(
+      'SmartRouter.Transformer.parseTrade(currency.chainId, serializedRes)',
+      SmartRouter.Transformer.parseTrade(currency.chainId, serializedRes),
+    )
+
     return SmartRouter.Transformer.parseTrade(currency.chainId, serializedRes)
   },
   // Since quotes are fetched on chain, which relies on network IO, not calculated offchain, we don't need to further optimize
