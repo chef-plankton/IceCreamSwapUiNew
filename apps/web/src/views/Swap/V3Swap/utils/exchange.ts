@@ -38,10 +38,9 @@ export function computeTradePriceBreakdown(trade?: SmartRouterTrade<TradeType> |
 
   const { routes, outputAmount, inputAmount } = trade
   let feePercent = new Percent(0)
-  
+
   console.log('trade', trade)
   let outputAmountWithoutPriceImpact = CurrencyAmount.fromRawAmount(trade.outputAmount.wrapped.currency, 0)
-  console.log('outputAmountWithoutPriceImpact', outputAmountWithoutPriceImpact)
 
   for (const route of routes) {
     const { inputAmount: routeInputAmount, pools, percent } = route
@@ -61,12 +60,17 @@ export function computeTradePriceBreakdown(trade?: SmartRouterTrade<TradeType> |
     )
     // Not accurate since for stable swap, the lp fee is deducted on the output side
     feePercent = feePercent.add(routeFeePercent.multiply(new Percent(percent, 100)))
+    console.log('feePercent:', feePercent.toFixed(2))
 
     const midPrice = SmartRouter.getMidPrice(route)
+    console.log('midPrice:', midPrice.toFixed(2))
+
     outputAmountWithoutPriceImpact = outputAmountWithoutPriceImpact.add(
       midPrice.quote(routeInputAmount.wrapped) as CurrencyAmount<Token>,
     )
   }
+  console.log('test1', outputAmountWithoutPriceImpact.toExact())
+  console.log('outputAmount.wrapped:', outputAmount.wrapped.toExact())
 
   if (outputAmountWithoutPriceImpact.quotient === ZERO) {
     return {
@@ -79,6 +83,8 @@ export function computeTradePriceBreakdown(trade?: SmartRouterTrade<TradeType> |
     .subtract(outputAmount.wrapped)
     .divide(outputAmountWithoutPriceImpact)
   const priceImpactPercent = new Percent(priceImpactRaw.numerator, priceImpactRaw.denominator)
+  console.log('priceImpactPercent:', priceImpactPercent.toFixed(2))
+
   const priceImpactWithoutFee = priceImpactPercent.subtract(feePercent)
   const lpFeeAmount = inputAmount.multiply(feePercent)
 

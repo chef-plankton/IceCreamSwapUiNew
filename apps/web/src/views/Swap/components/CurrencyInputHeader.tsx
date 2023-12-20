@@ -42,7 +42,6 @@ interface Props {
   isChartDisplayed?: boolean
   hasAmount: boolean
   onRefreshPrice: () => void
-  mutateAkkaRoute?: () => void
 }
 
 const ColoredIconButton = styled(IconButton)`
@@ -54,7 +53,7 @@ const ColoredIconButton = styled(IconButton)`
 const mobileShowOnceTokenHighlightAtom = atomWithStorageWithErrorCatch('pcs::mobileShowOnceTokenHighlightV2', true)
 
 const CurrencyInputHeader: React.FC<React.PropsWithChildren<Props>> = memo(
-  ({ subtitle, title, hasAmount, onRefreshPrice, mutateAkkaRoute }) => {
+  ({ subtitle, title, hasAmount, onRefreshPrice }) => {
     const { t } = useTranslation()
     const { chainId } = useActiveChainId()
     const [mobileTooltipShowOnce, setMobileTooltipShowOnce] = useAtom(mobileShowOnceTokenHighlightAtom)

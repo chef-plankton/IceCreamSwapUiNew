@@ -43,7 +43,6 @@ import {
   useUserV3SwapEnable,
   useRoutingSettingChanged,
 } from 'state/user/smartRouter'
-import { useIsAkkaSwapModeActive } from '../../../state/global/hooks'
 import { useMMLinkedPoolByDefault } from 'state/user/mmLinkedPool'
 import { styled } from 'styled-components'
 import { TOKEN_RISK } from 'components/AccessRisk'
@@ -86,8 +85,6 @@ export const withCustomOnDismiss =
   }
 
 const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ onDismiss, mode }) => {
-  // isAkkaSwapActive checks if akka router is generally active or not
-  const [isAkkaSwapActive, toggleSetAkkaActive, toggleSetAkkaActiveToFalse, toggleSetAkkaActiveToTrue] = useIsAkkaSwapModeActive()
   const [showConfirmExpertModal, setShowConfirmExpertModal] = useState(false)
   const [showExpertModeAcknowledgement, setShowExpertModeAcknowledgement] = useUserExpertModeAcknowledgement()
   const [expertMode, setExpertMode] = useExpertMode()
@@ -118,14 +115,6 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
       setExpertMode((s) => !s)
     } else {
       setShowConfirmExpertModal(true)
-    }
-  }
-
-  const handleAkkaModeToggle = () => {
-    if (isAkkaSwapActive) {
-      toggleSetAkkaActiveToFalse()
-    } else {
-      toggleSetAkkaActiveToTrue()
     }
   }
 
@@ -204,18 +193,6 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
               <PancakeToggle checked={audioPlay} onChange={() => setAudioMode((s) => !s)} scale="md" />
             </Flex>
             */ }
-            <Flex justifyContent="space-between" alignItems="center" mb="24px">
-              <Flex alignItems="center">
-                <Text>{t('Akka Router')}</Text>
-                <QuestionHelper text={t('You can toggle Akka router splitting')} placement="top-start" ml="4px" />
-              </Flex>
-              <Toggle
-                id="toggle-expert-mode-button"
-                scale="md"
-                checked={isAkkaSwapActive}
-                onChange={handleAkkaModeToggle}
-              />
-            </Flex>
             <RoutingSettingsButton />
           </>
         )}

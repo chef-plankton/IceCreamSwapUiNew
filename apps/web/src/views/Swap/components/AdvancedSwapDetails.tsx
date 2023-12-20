@@ -35,6 +35,7 @@ export const TradeSummary = memo(function TradeSummary({
 }) {
   const { t } = useTranslation()
   const isExactIn = tradeType === TradeType.EXACT_INPUT
+  console.log('here', priceImpactWithoutFee.toFixed(2))
 
   return (
     <AutoColumn style={{ padding: '0 24px' }}>
@@ -123,10 +124,7 @@ export const TradeSummary = memo(function TradeSummary({
                     <Text bold display="inline-block">
                       {t('MM')}
                     </Text>
-                    :{' '}
-                    {t(
-                      '',
-                    )}
+                    : {t('')}
                   </Text>
                 </>
               }
